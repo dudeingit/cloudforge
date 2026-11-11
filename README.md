@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # CloudForge
 
 > **Build. Validate. Deploy. Observe. Recover.**
@@ -9,37 +8,36 @@ The platform is designed around real cloud engineering practices while running l
 
 ## Architecture
 
-```text
 Developer
-   │
-   ▼
+    │
+    ▼
 GitHub
-   │
-   ▼
+    │
+    ▼
 GitHub Actions
-   ├── Application Tests
-   ├── Terraform Validation
-   ├── Security Scanning
-   └── Kubernetes Manifest Validation
-   │
-   ▼
+├── Application Tests
+├── Terraform Validation
+├── Security Scanning
+└── Kubernetes Manifest Validation
+    │
+    ▼
 Docker
-   │
-   ▼
+    │
+    ▼
 Kubernetes (kind)
-   │
-   ├── CloudForge Application
-   ├── Service / Ingress
-   │
-   ▼
+├── CloudForge Application
+├── Service / Ingress
+    │
+    ▼
 Prometheus
-   │
-   ├── Application Metrics
-   └── Health Alerts
-   │
-   ▼
+├── Application Metrics
+└── Health Alerts
+    │
+    ▼
 Failure Detection
-   │
-   ▼
+    │
+    ▼
 Rollback
+
+
 
