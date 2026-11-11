@@ -1,0 +1,11 @@
+groups:
+  - name: cloudforge-alerts
+    rules:
+      - alert: CloudForgeDown
+        expr: up{job="cloudforge"} == 0
+        for: 30s
+        labels:
+          severity: critical
+        annotations:
+          summary: "CloudForge application is down"
+          description: "Prometheus cannot scrape the CloudForge application."
