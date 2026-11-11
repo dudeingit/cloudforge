@@ -14,13 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v4
-        with:
-          version: latest
-
       - name: Validate Kubernetes manifests
-        uses: yannh/kubeconform@v4
-        with:
-          version: v1.30.0
-          args: "-strict -summary kubernetes/"
+        run: |
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/work" \
+            ghcr.io/yannh/kubeconform:latest \
+            -strict -summary /work/kubernetes/
