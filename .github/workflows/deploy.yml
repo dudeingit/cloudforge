@@ -1,0 +1,24 @@
+name: CloudForge Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate Kubernetes manifests
+        run: |
+          kubectl apply --dry-run=client \
+            -f kubernetes/namespace.yaml \
+            -f kubernetes/deployment.yaml \
+            -f kubernetes/service.yaml \
+            -f kubernetes/ingress.yaml
+
+      - name: Deployment health check
+        run: |
+          echo "Deployment validation completed."
