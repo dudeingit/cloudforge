@@ -43,16 +43,3 @@ Failure Detection
    ▼
 Rollback
 
-What CloudForge Demonstrates
-- Infrastructure as Code with Terraform
-- Containerization with Docker
-- Kubernetes application deployment
-- Kubernetes health and readiness probes
-- CI/CD with GitHub Actions
-- Infrastructure and Kubernetes security scanning
-- Kubernetes manifest validation
-- Application metrics with Prometheus
-- Deployment health checks
-- Automated rollback logic
-- Failure simulation and recovery
-- Reusable cloud-oriented infrastructure patterns
