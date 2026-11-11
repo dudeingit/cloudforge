@@ -26,3 +26,4 @@ jobs:
             -f kubernetes/deployment.yaml \
             -f kubernetes/service.yaml \
             -f kubernetes/ingress.yaml
+# Kubernetes CI enabled
