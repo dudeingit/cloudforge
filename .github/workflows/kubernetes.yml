@@ -20,9 +20,7 @@ jobs:
           version: latest
 
       - name: Validate Kubernetes manifests
-        run: |
-            kubectl create --dry-run=client -f kubernetes/namespace.yaml -o yaml > /dev/null
-           kubectl create --dry-run=client -f kubernetes/deployment.yaml -o yaml > /dev/null
-          kubectl create --dry-run=client -f kubernetes/service.yaml -o yaml > /dev/null
-          kubectl create --dry-run=client -f kubernetes/ingress.yaml -o yaml > /dev/null
+         uses: docker://ghcr.io/yannh/kubeconform:latest
+        with:
+          args: "-strict -summary kubernetes/*.yaml"
 # Kubernetes CI enabled
