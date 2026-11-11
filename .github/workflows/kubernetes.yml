@@ -21,9 +21,8 @@ jobs:
 
       - name: Validate Kubernetes manifests
         run: |
-          kubectl apply --dry-run=client --validate=false \
-            -f kubernetes/namespace.yaml \
-            -f kubernetes/deployment.yaml \
-            -f kubernetes/service.yaml \
-            -f kubernetes/ingress.yaml
+            kubectl create --dry-run=client -f kubernetes/namespace.yaml -o yaml > /dev/null
+           kubectl create --dry-run=client -f kubernetes/deployment.yaml -o yaml > /dev/null
+          kubectl create --dry-run=client -f kubernetes/service.yaml -o yaml > /dev/null
+          kubectl create --dry-run=client -f kubernetes/ingress.yaml -o yaml > /dev/null
 # Kubernetes CI enabled
