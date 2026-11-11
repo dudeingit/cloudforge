@@ -20,7 +20,7 @@ jobs:
           version: latest
 
       - name: Validate Kubernetes manifests
-         uses: docker://ghcr.io/yannh/kubeconform:latest
+        uses: docker://ghcr.io/yannh/kubeconform:latest
         with:
           args: "-strict -summary kubernetes/*.yaml"
 # Kubernetes CI enabled
