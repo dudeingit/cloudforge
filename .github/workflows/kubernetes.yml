@@ -14,10 +14,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Validate Kubernetes manifests
-        uses: stefanprodan/kube-tools@master
+      - name: Setup kubectl
+        uses: azure/setup-kubectl@v4
         with:
-          kubectl: "latest"
-          kubeconform: "latest"
-          command: |
-            kubeconform -strict -summary kubernetes/*.yaml
+          version: latest
+
+      - name: Validate Kubernetes manifests
+        run: |
+          kubectl apply --dry-run=client \
+            -f kubernetes/namespace.yaml \
+            -f kubernetes/deployment.yaml \
+            -f kubernetes/service.yaml \
+            -f kubernetes/ingress.yaml
